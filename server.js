@@ -1,9 +1,23 @@
+if (process.env.NODE_ENV !== "production") {
+    require('dotenv').config();
+}
+
+
 const express = require("express");
 const http = require("http");
 const app = express();
 const server = http.createServer(app);
 const cors = require('cors');
+const path = require('path');
 
+const publicPath = path.join(__dirname, '..', 'src');
+
+app.use(express.static(srcPath));
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(srcPath, 'index.js'));
+ });
+ 
 
 const io = require("socket.io")(server, {
 	cors: {
@@ -12,7 +26,11 @@ const io = require("socket.io")(server, {
 	}
 })
 
+
+
 app.use(cors());
+
+
 
 
 let onlineUsers = [];
@@ -54,4 +72,6 @@ io.on('connection', socket => {
 
 });
 
-server.listen(8000, () => console.log('server is running on port 8000'));
+const port = process.env.PORT || 8000;
+
+server.listen(port, () => console.log('server is running on port 8000'));
