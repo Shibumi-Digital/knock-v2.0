@@ -10,7 +10,7 @@ const server = http.createServer(app);
 const cors = require('cors');
 const path = require('path');
 
-const srcPath = path.join(__dirname, '.', 'knock-fe/src');
+const srcPath = path.join(__dirname, '.', 'client/src');
 
 // app.use(express.static(srcPath));
 
