@@ -10,7 +10,7 @@ const server = http.createServer(app);
 const cors = require('cors');
 const path = require('path');
 
-const publicPath = path.join(__dirname, '..', 'src');
+const srcPath = path.join(__dirname, '..', 'src');
 
 app.use(express.static(srcPath));
 
