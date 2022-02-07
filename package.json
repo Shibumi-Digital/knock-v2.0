@@ -12,7 +12,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    // "dev": "nodemon server.js",
+    
     "client-install": "npm install --prefix knock-fe",
     "start": "node server.js",
     "server": "nodemon server.js",
