@@ -10,14 +10,21 @@ const server = http.createServer(app);
 const cors = require('cors');
 const path = require('path');
 
-const srcPath = path.join(__dirname, '.', 'client/src');
+// const srcPath = path.join(__dirname, '.', 'client/src');
 
 // app.use(express.static(srcPath));
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(srcPath, 'index.js'));
- });
+// app.get('*', (req, res) => {
+//     res.sendFile(path.join(srcPath, 'index.js'));
+//  });
  
+
+ app.use(express.static(path.join(__dirname, '/./client/build')));
+ 
+ app.get('*', (req, res) => {
+   res.sendFile(path.join(__dirname + '/./client/build/index.html'));
+ });
+
 
 const io = require("socket.io")(server, {
 	cors: {
