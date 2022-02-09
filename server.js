@@ -10,20 +10,6 @@ const server = http.createServer(app);
 const cors = require('cors');
 const path = require('path');
 
-// const srcPath = path.join(__dirname, '.', 'client/src');
-
-// app.use(express.static(srcPath));
-
-// app.get('*', (req, res) => {
-//     res.sendFile(path.join(srcPath, 'index.js'));
-//  });
- 
-
-//  app.use(express.static(path.join(__dirname, '../client/src/images')));
- 
- app.get('*', (req, res) => {
-   res.sendFile(path.join(__dirname + './client/build/static'));
- });
 
 
 const io = require("socket.io")(server, {
@@ -32,7 +18,6 @@ const io = require("socket.io")(server, {
 		methods: [ "GET", "POST" ]
 	}
 })
-
 
 
 app.use(cors());
@@ -78,6 +63,10 @@ io.on('connection', socket => {
 
 
 });
+
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('client/build'))
+}
 
 const port = process.env.PORT || 8000;
 
