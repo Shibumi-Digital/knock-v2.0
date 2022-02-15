@@ -4,23 +4,25 @@
   "description": "",
   "main": "server.js",
   "dependencies": {
+    "@tauri-apps/api": "^1.0.0-rc.1",
     "cors": "^2.8.5",
     "express": "^4.17.2",
     "nodemon": "^2.0.15",
     "socket.io": "^4.4.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@tauri-apps/cli": "^1.0.0-rc.4"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon server.js",
+    "dev": "nodemon server.js npm run tauri build",
     "client": "cd client && npm start",
     "build": "cd client && npm run build",
     "install-client": "cd client && npm install",
     "heroku-postbuild": "npm run install-client && npm run build",
-    "start": "node server.js"
-
-
-
+    "start": "node server.js",
+    "tauri": "tauri",
+    "bundle": ""
   },
   "keywords": [],
   "author": "",
