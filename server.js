@@ -18,7 +18,9 @@ const io = require("socket.io")(server, {
 
 app.use(cors());
 
-
+app.get("/", (req, res) => {
+    res.send({ response: "Server is running." }).status(200);
+  });
 
 
 let onlineUsers = [];
