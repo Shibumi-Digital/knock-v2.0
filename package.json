@@ -15,11 +15,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node server.js",
-    "heroku-postbuild": "npm run install-client && npm run build",
-    "start": "node server.js",
-    "tauri": "tauri",
-    "bundle": ""
+    "dev": "node server.js"
+
   },
   "keywords": [],
   "author": "",
