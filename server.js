@@ -43,6 +43,7 @@ io.on('connection', socket => {
       
     socket.on('disconnect', () => {
         removeUser(socket.id);
+        io.sockets.emit("remainingUsers", onlineUsers);
     })
 
     socket.on("callUser", (data) => {
@@ -55,6 +56,10 @@ io.on('connection', socket => {
 
     socket.on('endCall', () => {
         io.emit('callEnded')
+    })
+
+    socket.on('rejectCall', () => {
+        io.emit('rejected')
     })
 
 
