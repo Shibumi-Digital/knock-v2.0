@@ -1,0 +1,35 @@
+
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%; 
+}
+
+
+.login {
+    position: absolute;
+    top:0;
+    right: 25%
+}
+
+
+.input{
+    padding: 5px;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    background-color: #d5dee7;
+}
+
+.btn-login {
+    background-color: #83c5be;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+
+

@@ -1,24 +1,47 @@
 {
-  "name": "knock",
-  "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
+  "name": "client",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "@tauri-apps/api": "^1.0.0-rc.1",
-    "cors": "^2.8.5",
-    "express": "^4.17.2",
-    "nodemon": "^2.0.15",
-    "socket.io": "^4.4.1"
-  },
-  "devDependencies": {
-    "@tauri-apps/cli": "^1.0.0-rc.4"
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
+    "electron": "^18.0.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-icons": "^4.3.1",
+    "react-scripts": "5.0.0",
+    "simple-peer": "^9.11.1",
+    "socket.io-client": "^4.4.1",
+    "styled-components": "^5.3.3",
+    "uuid": "^8.3.2",
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node server.js"
-
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "react-error-overlay": "^6.0.9"
+  }
 }
