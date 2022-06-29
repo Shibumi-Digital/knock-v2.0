@@ -98,7 +98,7 @@ function Main({ setUser, user, username, mouseEnter, mouseLeave, userInfo }) {
 
   console.log(userVideo);
   useEffect(() => {
-    socket.current = io.connect("http://localhost:8000/");
+    socket.current = io.connect("https://knock-v1-4.herokuapp.com/");
     navigator.mediaDevices
       .getUserMedia({ video: true, audio: true })
       .then((stream) => {
@@ -235,6 +235,8 @@ function Main({ setUser, user, username, mouseEnter, mouseLeave, userInfo }) {
           <h2>{yourName}</h2>
           <button
             className="btn-answer btn"
+            onMouseEnter={mouseEnter}
+            onMouseLeave={mouseLeave}
             onClick={() => {
               acceptCall();
               setActive(false);
@@ -261,15 +263,11 @@ function Main({ setUser, user, username, mouseEnter, mouseLeave, userInfo }) {
         {calling ? (
           <div className="calling">wait for an answer..</div>
         ) : (
-          <VideoPlayer partnerVideo={partnerVideo} />
-        )}
-
-        {/* (
           <Row className="video">
-            {UserVideo}
+            {/* {UserVideo} */}
             {PartnerVideo}
           </Row>
-        ) */}
+        )}
 
         {callRejected && !receiver ? (
           <div className="call-rejected">No Response</div>
@@ -299,8 +297,8 @@ function Main({ setUser, user, username, mouseEnter, mouseLeave, userInfo }) {
             <button
               className="btn-end"
               onClick={leaveCall}
-              // onMouseEnter={mouseEnter}
-              // onMouseLeave={mouseLeave}
+              onMouseEnter={mouseEnter}
+              onMouseLeave={mouseLeave}
             ></button>
           ) : null}
         </Row>
@@ -317,8 +315,8 @@ function Main({ setUser, user, username, mouseEnter, mouseLeave, userInfo }) {
               <button
                 key={key.socketId}
                 className={active ? "knock-btn-active" : "knock-btn"}
-                // onMouseEnter={mouseEnter}
-                // onMouseLeave={mouseLeave}
+                onMouseEnter={mouseEnter}
+                onMouseLeave={mouseLeave}
                 onClick={() => {
                   setPeerID(false);
                   callPeer(key.socketId);
